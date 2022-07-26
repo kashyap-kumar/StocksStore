@@ -1,0 +1,222 @@
+/* ============================ */
+/* essential */
+:root{
+  --primary-color: #2F393F; /* dark */
+  --primary-color-lt: #39454C; /* light dark */
+  --secondary-color: #43DA6D; /* green */
+  --tertiary-color: #FF5858; /* red */
+}
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: var(--primary-color);
+  font-size: 16px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+/* ============================ */
+/* container */
+.container{
+  height: 100vh;
+  padding: 1em;
+  margin: auto;
+  width: 80vw;
+  display: grid;
+  grid-template-areas: 'logoContainer logoContainer logoContainer logoContainer'
+                        'portfolioOverviewContainer portfolioOverviewContainer portfolioOverviewContainer portfolioOverviewContainer'
+                        'detailedPortfolioContainer detailedPortfolioContainer detailedPortfolioContainer alertsContainer';
+  grid-gap: 3rem;
+}
+.container > div:not(:first-child){
+  background-color: var(--primary-color-lt);
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+.logoContainer{
+  grid-area: logoContainer;
+}
+.portfolioOverviewContainer{
+  grid-area: portfolioOverviewContainer;
+}
+.detailedPortfolioContainer{
+  grid-area: detailedPortfolioContainer;
+}
+.alertsContainer{
+  grid-area: alertsContainer;
+}
+
+
+/* ============================ */
+/* Logo Container */
+.logoContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Berkshire Swash',cursive;
+  font-size: 4rem;
+}
+.textLogoRed{
+  color: var(--tertiary-color);
+}
+.textLogoGreen{
+  color: var(--secondary-color);
+}
+
+
+/* ============================ */
+/* portfolio Overview Container */
+.portfolioOverviewContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  font-family: 'Berkshire Swash', cursive;
+}
+.portfolioOverviewContainer > div > p:first-child{
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.portfolioOverviewContainer > div > p:nth-child(2){
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+#totalReturns{
+  color: var(--secondary-color); /*this color varies based on returns*/
+}
+
+
+/* ============================ */
+/* detailed Portfolio Container */
+.detailedPortfolioContainer{
+  position: relative;
+  padding: 0 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: scroll;
+}
+.detailedPortfolioContainer .headingRow,
+.detailedPortfolioContainer .stock{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stockNameAndQuantity,
+.headingRow > span:first-child {
+  flex-basis: 25%;
+}
+.targetAndStoploss,
+.marketAndAvgPrice,
+.returns,
+.currentAndInvestedAmount,
+.headingRow > span:not(:first-child){
+  flex-basis: 18.75%;
+  text-align: right;
+}
+.headingRow {
+  /* to make the heading row sticky */
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  padding-top: 1.75rem;
+
+  font-size: 1rem;
+  font-family: 'Berkshire Swash', cursive;
+  color:rgba(255, 255, 255, 0.6);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.6);
+  padding-bottom: 0.875rem;
+}
+.headingRow i{
+  margin-left: 0.25rem;
+}
+.stock > div > p:first-child{
+  font-size: 0.875rem;
+  color: rgb(255, 255, 255);
+}
+.stock > div > p:nth-child(2){
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.stock{
+  font-family: 'Roboto', sans-serif;
+  margin-top: 1.5rem;
+}
+.stock > .returns > .returnsInPercent{
+  color: var(--secondary-color); /* this color will change based on profit or loss*/
+}
+.activeSortColumn {
+  color:rgb(255, 255, 255);
+}
+.activeSortColumn > i {
+  color: var(--secondary-color);
+}
+
+
+/* ============================ */
+/* alerts container */
+.alertsContainer{
+  position: relative;
+  padding: 0 2rem 1.5em;
+  overflow: scroll;
+}
+.alertsContainerHeading{
+  /* to make the heading sticky */
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  padding-top: 1.5em;
+
+  font-size: 1.5rem;
+  font-family: 'Berkshire Swash', cursive;
+  color: var(--tertiary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.alertsContainer > p{
+  color: rgb(255, 255, 255);
+  margin-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+#no-alert{
+  display: block;
+}
+
+/* RESPONSIVENESS */
+@media only screen and (max-width: 800px) {
+  html{
+    font-size: 8px;
+  }
+  body{
+    overflow: scroll;
+    font-size: 14px;
+  }
+  .container{
+    width: 90vw;
+    height: auto;
+    grid-template-areas: 'logoContainer'
+                          'portfolioOverviewContainer'
+                          'detailedPortfolioContainer'
+                          'alertsContainer';
+    grid-gap: 3rem;
+  }
+  .portfolioOverviewContainer > div > p:first-child{
+    font-size: 0.75rem;
+  }
+  .portfolioOverviewContainer > div > p:nth-child(2){
+    font-size: 1.25rem;
+  }
+}

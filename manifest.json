@@ -1,0 +1,14 @@
+{
+    "name": "StocksStore",
+    "short_name": "StocksStore",
+    "start_url": ".",
+    "display": "fullscreen",
+    "background_color": "#2f393f",
+    "theme_color": "#43da6d",
+    "description": "A simple stock portfolio app to track all the stocks from different apps in one place.",
+    "icons": [{
+      "src": "images/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }]
+  }  

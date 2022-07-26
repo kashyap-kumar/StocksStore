@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="author" content="Kashyap Kumar, kashyapkumar-pdf@github.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An easy way to track stocks portfolio">
+
+  <title>StocksStore</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="images/icon.png" type="image/png">
+
+  <!-- styling loader -->
+  <style>
+    .loader{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: grid;
+      place-items: center;
+      z-index: 1;
+    }
+    .loader span{
+      width: 70px;
+      height: 70px;
+      border: 7px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 7px solid #43DA6D;
+      border-top: 7px solid #FF5858;
+      border-radius: 50%;
+      animation: anim 2s infinite;
+    }
+    @keyframes anim {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="loader">
+    <span></span>
+  </div>
+
+  <div class="container">
+
+    <!-- Logo Container -->
+    <div class="logoContainer">
+      <span class="textLogoRed">Stocks</span>
+      <span class="textLogoGreen">Store</span>
+    </div>
+
+    <!-- portfolio overview -->
+    <div class="portfolioOverviewContainer">
+      <!-- current value -->
+      <div class="totalCurrentValue">
+        <p>Current value</p>
+        <p id="totalCurrentValue">₹9876.54</p>
+      </div>
+
+      <!-- total returns -->
+      <div class="totalReturns">
+        <p>Total returns</p>
+        <p id="totalReturns">+₹986.54 (12.23%)</p>
+      </div>
+
+      <!-- invested amount -->
+      <div class="totalInvestedAmount">
+        <p>Invested amount</p>
+        <p id="totalInvestedAmount">₹9876.54</p>
+      </div>
+    </div>
+
+    <!-- detailed portfolio -->
+    <div class="detailedPortfolioContainer" id="detailedPortfolioContainer">
+      <!-- heading row -->
+      <div class="headingRow">
+        <span class="activeSortColumn">Stock <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <span>Target/SL <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <span>Mkt/Avg <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <span>Returns <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <span>Current <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+      </div>
+
+      <!-- stocks info rows-->
+      <!-- row(individual stocks) template -->
+      <!--
+      <div class="stock">
+        <div class="stockNameAndQuantity">
+          <p class="stockName">Vodafone Idea</p>
+          <p class="stockQuantity">15 shares</p>
+        </div>
+        <div class="targetAndStoploss">
+          <p class="targetPrice">₹2,546.23</p>
+          <p class="stoplossPrice">₹2,546.23</p>
+        </div>
+        <div class="marketAndAvgPrice">
+          <p class="marketPrice">₹2,746.23</p>
+          <p class="avgPrice">₹2,546.23</p>
+        </div>
+        <div class="returns">
+          <p class="returnsInRs">₹2,546.23</p>
+          <p class="returnsInPercent">+12.23%</p>
+        </div>
+        <div class="currentAndInvestedAmount">
+          <p class="currentValue">₹24,546.23</p>
+          <p class="investedAmount">₹24,546.23</p>
+        </div>
+      </div>
+      -->
+    </div>
+
+    <!-- alerts section -->
+    <div class="alertsContainer" id="alertsContainer">
+      <div class="alertsContainerHeading">Alerts</div>
+      <p class="alert" id="no-alert">Everything is okay, chill!</p>
+      <!-- alert message template -->
+      <!-- <p class="alert">Good time to sell ITC</p> -->
+    </div>
+  </div>
+  
+  <script src="main.js"></script>
+</body>
+</html>
