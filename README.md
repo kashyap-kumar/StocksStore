@@ -27,4 +27,9 @@ A simple stock portfolio tracker webapp to track all the stocks from different a
 
 > Pro tip: If npm is installed, use `npx http-server -c5184000`, (this will cache the files for 2 months) and open the homepage in your phone and then add the app to homescreen. Now the app can be used even without server for 2 months in your phone.
 
-Thank you!
+## Screenshots
+![Loading](/screenshots/stocksstore_loading.png?raw=true "Loading")
+![Loading](/screenshots/stocksstore.png?raw=true "Fully loaded")
+![Loading](/screenshots/stocksstore_cli.png?raw=true "CLI")
+
+Thank you 😎
