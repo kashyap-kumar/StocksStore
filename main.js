@@ -155,7 +155,7 @@ function main(){
 
 // FUNCTION TO CALL THE API AND TO GET TODAY'S CLOSE PRICE
 async function getTodayClose(symbol) {
-  const url       = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}.BSE&apikey=${APIKEY}`;
+  const url       = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}.BSE&apikey=${APIKEY}`;
   const response  = await fetch(url);
   const data      = await response.json();
   return            (data['Time Series (Daily)'][dayOfFetchData]['4. close']);
